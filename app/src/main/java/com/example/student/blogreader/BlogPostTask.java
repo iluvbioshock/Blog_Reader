@@ -20,16 +20,17 @@ public class BlogPostTask extends AsyncTask<Activity, Void, JSONObject> {
 
             HttpURLConnection connection = (HttpURLConnection) blogFeedUrl.openConnection();
             connection.connect();
-            int responseCode= connection.getResponseCode();
+            int responseCode = connection.getResponseCode();
 
-            if (responseCode == HttpURLConnection.HTTP_OK){
-                
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                Log.i("BlogPostTask", "Succesful Connection" + responseCode);
             }
+        }
         catch (MalformedURLException error){
-            Log.e("BlogPostTask", "MalformedURLException" + error);
+            Log.e("BlogPostTask", "Malformed URL" + error);
         }
         catch (IOException error){
-            Log.e("BlogPostTask", "IOException" + error);
+            Log.e("BlogPostTask", "IO Exception" + error);
         }
         return null;
     }
